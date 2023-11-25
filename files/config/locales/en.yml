@@ -1,0 +1,15 @@
+en:
+  hello: "Hello world"
+  app_name: "Rails Application"
+  form_errors:
+    message: "It was a failure!"
+  users:
+    new:
+      signup: "Sign up"
+      teaser: "Teaser"
+      signin: "Sign in"
+  sessions:
+    new:
+      signin: "Sign in"
+      signup: "Sign up"
+      rememberme: "Remember me"

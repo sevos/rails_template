@@ -1,0 +1,15 @@
+pl:
+  hello: "Cześć"
+  app_name: "Aplikacja w Rails"
+  form_errors:
+    message: "Nie udało się!"
+  users:
+    new:
+      signup: "Załóż konto"
+      teaser: "Zacznij rozwijać nawyki już dziś!"
+      signin: "Zaloguj się"
+  sessions:
+    new:
+      signin: "Zaloguj się"
+      signup: "Załóż konto"
+      rememberme: "Zapamiętaj mnie"

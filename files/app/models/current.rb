@@ -1,5 +1,5 @@
 class Current < ActiveSupport::CurrentAttributes
-  attribute :locale
+  attribute :locale, :user
 
   def locale=(locale)
     super(I18n.locale = locale)

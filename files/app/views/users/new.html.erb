@@ -1,0 +1,13 @@
+<%= form_with model: @user, url: user_path do |form| %>
+  <div class="container py-2 h-full bg-primary-50 flex flex-col">
+    <%= title t('.signup'), t('.teaser') %>
+
+    <%= form.email_field :email %>
+    <%= form.password_field :password %>
+    <%= form.password_field :password_confirmation %>
+
+    <%= form.submit t('.signup'), class: "button primary px-6 py-3 my-4 md:mt-8 place-self-center text-lg" %>
+    <%= link_to t('.signin'), new_session_path, class: 'place-self-center' %>
+
+  </div>
+<% end %>

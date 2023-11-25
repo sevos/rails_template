@@ -1,0 +1,16 @@
+<%= form_with model: @user, url: session_path do |form| %>
+  <div class="container py-2 h-full bg-primary-50 flex flex-col">
+    <%= title t('.signin') %>
+
+    <%= form.fields_group do %>
+      <%= form.email_field :email %>
+      <%= form.password_field :password %>
+      <span class="flex gap-2">
+        <%= check_box_tag :remember_me %><%= label_tag :remember_me, t('.rememberme') %>
+      </span>
+    <% end %>
+    <%= form.submit t('.signin'), class: "button primary px-6 py-3 my-4 md:mt-8 place-self-center text-lg" %>
+
+    <%= link_to t('.signup'), new_user_path, class: 'place-self-center' %>
+  </div>
+<% end %>

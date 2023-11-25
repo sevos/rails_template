@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+DIRECTORY_OF_THIS_FILE="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+PARENT_DIRECTORY_OF_THIS_FILE="$(dirname "$DIRECTORY_OF_THIS_FILE")"
+
+echo -e "a\n" | rails new $1 --main -a propshaft -c tailwind -d postgresql -j importmap -m $PARENT_DIRECTORY_OF_THIS_FILE/rails_template.rb

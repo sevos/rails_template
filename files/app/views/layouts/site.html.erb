@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html class="h-full" <%= 'data-turbo-native-app' if turbo_native_app? %> >
+<head>
+  <title><%= content_for(:title) || t('app_name') %></title>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale = 1.0, user-scalable = no, viewport-fit=cover ">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <!-- possible content values: default, black or black-translucent -->
+  <meta name="apple-mobile-web-app-status-bar-style"
+        content="black-translucent">
+
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+  <%= favicon_link_tag asset_path('icon.png') %>
+  <%= tag.link rel: "apple-touch-icon", href: asset_url('icon.png') %>
+  <%= javascript_importmap_tags %>
+  <%= hotwire_livereload_tags if Rails.env.development? %>
+</head>
+
+<body class="">
+<main class="">
+  <%= yield %>
+</main>
+</div>
+</body>
+</html>

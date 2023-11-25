@@ -9,6 +9,10 @@ gem_group :development do
   gem "hotwire-livereload"
 end
 
+gem "acts_as_tenant"
+gem "bcrypt"
+gem "good_job"
+
 environment "config.hotwire_livereload.listen_paths << Rails.root.join(\"app/assets/builds\")", env: 'development'
 
 # Assume SSL in Production
@@ -29,12 +33,19 @@ route <<~ROUTE
   end
 ROUTE
 
+# Add following lines to config/application.rb
+#     config.i18n.available_locales = [:en, :pl]
+#     config.i18n.default_locale = :en
+#
+#     config.active_job.queue_adapter = :good_job
+run "sed -i '/config.load_defaults 7.1/a \ \ \ \ config.i18n.available_locales = [:en, :pl]' config/application.rb"
+run "sed -i '/config.load_defaults 7.1/a \ \ \ \ config.i18n.default_locale = :en' config/application.rb"
+run "sed -i '/config.load_defaults 7.1/a \ \ \ \ config.active_job.queue_adapter = :good_job' config/application.rb"
+
 after_bundle do
   run 'bin/setup'
-  run "rails livereload:install"
-
-  run "sed -i 's/<html>/<html <%= \"data-turbo-native-app\" if turbo_native_app? %> >/g' app/views/layouts/application.html.erb"
-  run "sed -i '/<\\/head>/i <%= yield :head %>' app/views/layouts/application.html.erb"
+  run 'bin/rails g good_job:install'
+  run 'bin/rails db:migrate'
 
   # Git
   git :init
