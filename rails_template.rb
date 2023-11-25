@@ -15,18 +15,12 @@ environment "config.hotwire_livereload.listen_paths << Rails.root.join(\"app/ass
 environment "config.force_ssl = true", env: 'production'
 environment "config.assume_ssl = true", env: 'production'
 
-files = %w[
-  app/builders/application_form_builder.rb
-  config/tailwind.config.js
-  app/controllers/application_controller.rb
-  app/controllers/configurations_controller.rb
-  app/controllers/concerns/application_controller/with_locale_from_request.rb
-  app/helpers/application_helper.rb
-  app/models/current.rb
-]
+files = Dir[File.expand_path("../files/**/*", __FILE__)]
+  .reject { |f| File.directory?(f) }
+  .map { |f| f.gsub(File.expand_path("../files", __FILE__) + "/", "") }
 
 files.each do |file_path|
-  file file_path, File.read(File.expand_path("../#{file_path}", __FILE__))
+  file file_path, File.read(File.expand_path("../files/#{file_path}", __FILE__))
 end
 
 route <<~ROUTE

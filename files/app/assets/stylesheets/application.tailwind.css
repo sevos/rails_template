@@ -1,0 +1,80 @@
+@import 'actiontext.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .link {
+        @apply font-medium text-primary-500 hover:text-primary-700;
+    }
+
+    .button {
+        @apply leading-loose py-2.5 px-5 text-sm font-medium text-primary-dark rounded-lg border bg-primary-lighter border border-primary hover:bg-primary-light focus:z-10 focus:outline-none focus:ring-4 focus:ring-secondary-500 focus:border-secondary-500;
+    }
+
+    .button.primary {
+        @apply bg-primary-300 border-2 border-primary-800
+        hover:bg-primary-400
+        focus:border-secondary-500;
+    }
+
+    .form-control {
+        @apply bg-transparent border-0 border-b-2 border-primary-500 placeholder-primary-600 text-primary-900 text-sm focus:border-b-2 focus:border-primary-800 focus:placeholder-primary-500 focus:ring-0 focus:ring-offset-0 block w-full p-1
+    }
+
+    .form-hint {
+        @apply text-sm text-primary-500;
+    }
+
+    .form-input-error {
+        @apply text-sm text-red-600;
+    }
+
+    .form-input-invalid {
+        @apply bg-red-50 border-red-500 text-red-900 placeholder-red-700 text-sm focus:ring-red-500 focus:border-red-500 block w-full p-2.5
+    }
+
+    .form-input-group:not(.form-fields-group .form-input-group) {
+        @apply mb-2 md:mb-4;
+    }
+
+    .form-input-group.checkbox {
+        @apply flex items-center;
+    }
+
+    .form-input-group .custom-control.custom-checkbox {
+        @apply flex items-center mt-4;
+    }
+
+    .form-input-group .custom-control.custom-checkbox .custom-control-input {
+        @apply w-6 h-6 border border-primary-300 rounded  focus:ring-secondary-300
+    }
+
+    .form-input-group .custom-control-label {
+        @apply ml-2 text-sm font-medium text-primary-900;
+    }
+
+    .form-label {
+        @apply block mb-2 text-sm font-medium text-primary-900
+    }
+
+    .form-fields-group {
+        @apply grid gap-6 mb-4;
+    }
+
+    .custom-file-input {
+        @apply block w-full text-sm text-primary-900 border border-primary-300 rounded-lg cursor-pointer bg-primary-50  focus:outline-none;
+    }
+
+    .form-input-toggle {
+        @apply mt-4 flex relative items-center cursor-pointer;
+    }
+
+    .form-input-toggle .toggle-switch {
+    }
+
+    .form-input-toggle span {
+        @apply inline ml-3 text-sm font-medium text-primary-900;
+    }
+}
