@@ -147,8 +147,8 @@ module.exports = {
       },
       colors: {
         ...colors,
-        primary: colorFamily(colors.purple),
-        secondary: colorFamily(colors.teal),
+        primary: colorFamily(colors.gray),
+        secondary: colorFamily(colors.sail),
       }
     },
     height: theme => ({
